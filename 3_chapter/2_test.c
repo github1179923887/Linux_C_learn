@@ -22,7 +22,7 @@ int main()
         return -1;
     }
 
-    lseek(fd, 4096, SEEK_SET);
+    ret = lseek(fd, 4096, SEEK_SET);
     if (ret == -1)
     {
         perror("lseek error");
