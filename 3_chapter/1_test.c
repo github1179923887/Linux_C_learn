@@ -15,7 +15,7 @@ int main()
     {
         printf("Error: %s\n", strerror(errno));     // strerror 根据errno的值返回具体的错误信息
         perror("");     // 自动根据errno值打印具体的错误信息，双引号内的字符串会在错误信息前显示，可用来注释
-        perror("open error");
+        perror("open error");       //不需要包含<errno.h>，因为其内已经包含了
         return -1;
     }
     close(fd);
