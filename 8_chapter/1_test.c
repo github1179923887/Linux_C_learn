@@ -12,6 +12,8 @@ int main()
 {
     sig_t ret = NULL;
     ret = signal(SIGINT, (sig_t)sig_handler);
+    //ret = signal(SIGINT, SIG_IGN);忽略信号，注意有的信号不会忽略，就会报错
+    //ret = signal(SIGINT, SIG_DEF);默认处理
     if (SIG_ERR == ret)
     {
         perror("signal error");
