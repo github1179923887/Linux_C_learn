@@ -12,7 +12,7 @@
 //     return 0;
 // }
 
-//!方法二：第三种int main形式获取环境变量
+//!方法二：第三种int main形式获取环境变量，不一定兼容，尽量使用方法一
 // int main(int argc, char **argv, char **env)
 // {
 //     for (int i = 0; env[i] != NULL; i++)    // 环境表最后以NULL结尾
