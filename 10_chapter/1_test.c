@@ -16,7 +16,8 @@ static void *new_thread_start(void *arg)
     sleep(2);
     printf("新线程结束\n");
     //!终止线程，任意线程若调用exit之类的函数，会直接导致整个进程终止！！！
-    pthread_exit((void*)10);   //可在任意处调用，不必在最后，必须要强制转化为(void*)型
+    //也可以使用return
+    pthread_exit((void*)10);   //可在任意处调用，不必在最后，必须要强制转化为(void*)型或者NULL
 }
 
 int main()
@@ -34,7 +35,7 @@ int main()
         exit(-1);
     }
 
-    //!回收线程(只能阻塞等待)，第二个参数不为NULL时，将目标线程的退出状态赋予其，若目标被pthread_cancel取消，则需将PTHREAD_CANCELED放在其中
+    //!回收线程(只能阻塞等待)，第二个参数不为NULL时，存储目标线程的退出状态(返回值)，若目标被pthread_cancel取消，则需将PTHREAD_CANCELED放在其中
     //进程中任意线程均可以等待其他任意线程的终止
     ret = pthread_join(tid, &tret);
     if (ret)
