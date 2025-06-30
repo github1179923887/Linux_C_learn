@@ -16,7 +16,7 @@ static void *new_thread_start(void *arg)
     sleep(2);
     printf("新线程结束\n");
     //!终止线程，任意线程若调用exit之类的函数，会直接导致整个进程终止！！！
-    //也可以使用return
+    //也可以使用return (void*)x
     pthread_exit((void*)10);   //可在任意处调用，不必在最后，必须要强制转化为(void*)型或者NULL
 }
 
